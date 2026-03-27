@@ -156,10 +156,10 @@ void * popCurrent(List * list) {
     if (list -> current == NULL) return NULL; // no existen datos en la lista o lista vacia.
     
     void * dataCurrent = list -> current -> data; // dato del current auxiliar.
-    void * auxCurrent = list -> current;          // current auxiliar. (puntero)
+    //void * auxCurrent = list -> current;          // current auxiliar. (puntero)
 
     Node *prevCurrent = list -> current -> prev;  // antes de current.
-    //Node *nextCurrent = list -> current -> next;  // despues de current.
+    Node *nextCurrent = list -> current -> next;  // despues de current.
 
     if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
         list -> head = NULL;
