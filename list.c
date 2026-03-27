@@ -169,7 +169,7 @@ void * popCurrent(List * list) {
 
     else if (list -> current == list -> head && nextCurrent != NULL){ // current es el primer dato de todos los demas.
         list -> head = nextCurrent;
-        nextCurrent -> prev == NULL;
+        nextCurrent -> prev = NULL;
         list -> current = list -> head;
     }
 
