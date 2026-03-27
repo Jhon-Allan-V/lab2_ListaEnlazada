@@ -60,3 +60,17 @@ Fri Mar 27 01:36:50 AM UTC 2026:
  tests:  11|1
 total_score: 50/60
 8cdc099
+Fri Mar 27 01:56:48 AM UTC 2026: 
+ list.c | 42 ++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 38 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:172:29: error: statement with no effect [-Werror=unused-value]
+  172 |         nextCurrent -> prev == NULL;
+      |                             ^
+list.c:159:12: error: unused variable ‘auxCurrent’ [-Werror=unused-variable]
+  159 |     void * auxCurrent = list -> current;          // current auxiliar. (puntero)
+      |            ^~~~~~~~~~
+cc1: all warnings being treated as errors
+3887bb3

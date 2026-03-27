@@ -103,9 +103,8 @@ void pushFront(List * list, void * data) {
         list -> tail = nodo;
         return;
     }
-
-    // lista tiene datos;
-    nodo -> next = list -> head;
+    
+    nodo -> next = list -> head; // lista tiene datos;
     list -> head -> prev = nodo;
     list -> head = nodo;
     
@@ -131,7 +130,7 @@ void pushCurrent(List * list, void * data) {
         return;
     } 
 
-    // estamos entre datos.
+    // current esta entre datos.
     nodo -> prev = list -> current;
     nodo -> next = list -> current -> next;
     list -> current -> next = nodo;
@@ -153,7 +152,42 @@ void * popBack(List * list) {
 // Nota: El current debe quedar apuntando al nodo siguiente del eliminado.
 
 void * popCurrent(List * list) {
-    return NULL;
+
+    if (list -> current == NULL) return NULL; // no existen datos en la lista o lista vacia.
+    
+    void * dataCurrent = list -> current -> data; // dato del current auxiliar.
+    void * auxCurrent = list -> current;          // current auxiliar. (puntero)
+
+    Node *prevCurrent = list -> current -> prev;  // antes de current.
+    Node *nextCurrent = list -> current -> next;  // despues de current.
+
+    if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
+        list -> head = NULL;
+        list -> tail = NULL;
+        list -> current = NULL;
+    }
+
+    else if (list -> current == list -> head && nextCurrent != NULL){ // current es el primer dato de todos los demas.
+        list -> head = nextCurrent;
+        nextCurrent -> prev == NULL;
+        list -> current = list -> head;
+    }
+
+    else if (list -> current == list -> tail && prevCurrent != NULL){ // current es el ultimo dato de todos los demas.
+        list -> tail = prevCurrent;
+        prevCurrent -> next = NULL;
+        list -> current = list -> tail;
+    }
+
+    else { // current esta entre los datos.
+        prevCurrent -> next = nextCurrent;
+        nextCurrent -> prev = prevCurrent;
+        list -> current = nextCurrent;
+    }
+    
+    free(list -> current);
+    
+    return dataCurrent;
 }
 
 void cleanList(List * list) {
