@@ -159,7 +159,7 @@ void * popCurrent(List * list) {
     void * auxCurrent = list -> current;          // current auxiliar. (puntero)
 
     Node *prevCurrent = list -> current -> prev;  // antes de current.
-    Node *nextCurrent = list -> current -> next;  // despues de current.
+    //Node *nextCurrent = list -> current -> next;  // despues de current.
 
     if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
         list -> head = NULL;

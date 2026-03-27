@@ -74,3 +74,19 @@ list.c:159:12: error: unused variable ‘auxCurrent’ [-Werror=unused-variable]
       |            ^~~~~~~~~~
 cc1: all warnings being treated as errors
 3887bb3
+Fri Mar 27 01:57:54 AM UTC 2026: 
+ list.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+list.c: In function ‘popCurrent’:
+list.c:164:32: error: ‘nextCurrent’ undeclared (first use in this function); did you mean ‘auxCurrent’?
+  164 |     if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
+      |                                ^~~~~~~~~~~
+      |                                auxCurrent
+list.c:164:32: note: each undeclared identifier is reported only once for each function it appears in
+list.c:159:12: error: unused variable ‘auxCurrent’ [-Werror=unused-variable]
+  159 |     void * auxCurrent = list -> current;          // current auxiliar. (puntero)
+      |            ^~~~~~~~~~
+cc1: all warnings being treated as errors
+3e27e0f
