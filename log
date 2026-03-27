@@ -41,3 +41,16 @@ Fri Mar 27 01:20:23 AM UTC 2026:
  tests:  10|2
 total_score: 40/60
 d5f19e2
+Fri Mar 27 01:35:22 AM UTC 2026: 
+ list.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+Compilation failed
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:123:41: error: ‘return’ with a value, in function returning void [-Wreturn-mismatch]
+  123 |     if (list -> current == NULL) return NULL; //lista vacia.
+      |                                         ^~~~
+list.c:121:6: note: declared here
+  121 | void pushCurrent(List * list, void * data) {
+      |      ^~~~~~~~~~~
+258dd2c

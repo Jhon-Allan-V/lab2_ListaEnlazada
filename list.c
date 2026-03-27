@@ -65,7 +65,7 @@ void * nextList(List * list) {
     list -> current = list -> current -> next;
     
     return list -> current -> data;
-
+    
 }
 
 // 3. Programe las funciones void * lastList(List * list) y void * prevList(List * list).
@@ -75,7 +75,6 @@ void * nextList(List * list) {
 void * lastList(List * list) {
 
     if (list -> tail == NULL) return NULL;
-
     list -> current = list -> tail;
 
     return list -> current -> data;
@@ -83,10 +82,9 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-
+    
     if (list -> current == NULL) return NULL;
     if (list -> current -> prev == NULL) return NULL;
-
     list -> current = list -> current -> prev;
 
     return list -> current -> data;
@@ -107,7 +105,6 @@ void pushFront(List * list, void * data) {
     }
 
     // lista tiene datos;
-
     nodo -> next = list -> head;
     list -> head -> prev = nodo;
     list -> head = nodo;
@@ -122,6 +119,24 @@ void pushBack(List * list, void * data) {
 // 5. Programe la función void pushCurrent(List * list, void* data), la cual agrega un dato a continuación del nodo apuntado por list->current.
 
 void pushCurrent(List * list, void * data) {
+
+    if (list -> current == NULL) return NULL; //lista vacia.
+    
+    Node * nodo = createNode(data);
+    
+    if (list -> current == list -> tail){ // current esta al final de la lista.
+        list -> tail = nodo;
+        list -> current -> next = nodo;
+        nodo -> prev = list -> current;
+        return;
+    } 
+
+    // estamos entre datos.
+    nodo -> prev = list -> current;
+    nodo -> next = list -> current -> next;
+    list -> current -> next = nodo;
+    list -> current -> next -> prev = nodo;
+    
 }
 
 void * popFront(List * list) {
