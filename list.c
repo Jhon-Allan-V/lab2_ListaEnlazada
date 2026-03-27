@@ -120,7 +120,7 @@ void pushBack(List * list, void * data) {
 
 void pushCurrent(List * list, void * data) {
 
-    if (list -> current == NULL) return NULL; //lista vacia.
+    if (list -> current == NULL) return; //lista vacia.
     
     Node * nodo = createNode(data);
     
