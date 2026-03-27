@@ -164,7 +164,6 @@ void * popCurrent(List * list) {
     if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
         list -> head = NULL;
         list -> tail = NULL;
-        list -> current = NULL;
     }
 
     else if (list -> current == list -> head && nextCurrent != NULL){ // current es el primer dato de todos los demas.
