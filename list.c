@@ -156,14 +156,14 @@ void * popCurrent(List * list) {
     if (list -> current == NULL) return NULL; // no existen datos en la lista o lista vacia.
     
     void * dataCurrent = list -> current -> data; // dato del current auxiliar.
-    void * auxCurrent = list -> current;          // current auxiliar. (puntero)
-
+    Node * auxCurrent = list -> current;          // current auxiliar. (puntero)
     Node *prevCurrent = list -> current -> prev;  // antes de current.
     Node *nextCurrent = list -> current -> next;  // despues de current.
 
     if (prevCurrent == NULL && nextCurrent == NULL){ //current es el unico dato.
         list -> head = NULL;
         list -> tail = NULL;
+        list -> current = NULL;
     }
 
     else if (list -> current == list -> head && nextCurrent != NULL){ // current es el primer dato de todos los demas.
@@ -175,7 +175,8 @@ void * popCurrent(List * list) {
     else if (list -> current == list -> tail && prevCurrent != NULL){ // current es el ultimo dato de todos los demas.
         list -> tail = prevCurrent;
         prevCurrent -> next = NULL;
-        list -> current = list -> tail;
+        //list -> current = list -> tail;
+        list -> current = NULL;
     }
 
     else { // current esta entre los datos.
